@@ -2313,6 +2313,10 @@ div.lozad.loaded:not(.no-fade-animation),img.lozad.loaded {
   transition: background-color .2s linear;
 }
 
+:root .m-toggle-darkmode-mobile,_:-ms-fullscreen {
+  display: none;
+}
+
 /* dark mode pc */
 .m-toggle-darkmode {
   position: fixed;
