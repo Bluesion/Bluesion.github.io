@@ -265,13 +265,13 @@ template {
   --primary-subtle-color: #04aeee;
   --secondary-subtle-color: #f4f8fd;
   --titles-color: #333;
-  --link-color: #293951;
+  --link-color: #1a8de9;
   --primary-border-color: #9b9b9b;
   --secondary-border-color: #f0f8ff;
   --article-shadow-normal: 0 10px 10px rgba(0,0,0,0.08);
   --article-shadow-hover: 0 4px 60px 0 rgba(0,0,0,0.2);
   --transparent-background-color: hsla(0,0%,100%,0.99);
-  --footer-background-color: #293951;
+  --footer-background-color: #1a8de9;
   --submenu-shadow-color-opacity: 0.25;
   --button-shadow-color-normal: hsla(0,0%,42.4%,0.2);
   --button-shadow-color-hover: hsla(0,0%,42.4%,0.3);
@@ -282,10 +282,10 @@ template {
   --background-color: #111;
   --primary-foreground-color: #ccc;
   --secondary-foreground-color: #fff;
-  --primary-subtle-color: #2c2fe6;
+  --primary-subtle-color: #1a8de9;
   --secondary-subtle-color: #141920;
   --titles-color: #b4b4b4;
-  --link-color: #2c2fe6;
+  --link-color: #1a8de9;
   --primary-border-color: #1d1d1d;
   --secondary-border-color: #0f0f0f;
   --article-shadow-normal: 0 4px 5px 5px rgba(0,0,0,0.1);
