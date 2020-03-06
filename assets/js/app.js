@@ -17,7 +17,7 @@
 				},
 				s = function () {
 					var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "768px";
-					return window.matchMedia("(max-width: ".concat(e, ")")).matches
+					return false
 				},
 				o = function () {
 					var e = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
