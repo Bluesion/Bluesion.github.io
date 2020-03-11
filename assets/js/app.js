@@ -54,7 +54,19 @@
 				Object(p.isRTL)() && o()("html").attr("dir", "rtl").addClass("rtl");
 				var e = o()("body"),
 					t = o()(".js-header"),
+					n = o()(".js-open-menu"),
+					a = o()(".js-close-menu"),
 					s = o()(".js-menu"),
+					i = o()(".js-toggle-submenu"),
+					l = o()(".js-submenu-option")[0],
+					u = o()(".js-submenu"),
+					m = o()(".js-recent-articles"),
+					g = o()(".js-open-search"),
+					v = o()(".js-close-search"),
+					b = o()(".js-search"),
+					k = o()(".js-input-search"),
+					w = o()(".js-search-results"),
+					j = o()(".js-no-results"),
 					C = o()(".js-toggle-darkmode"),
 					D = o()(".js-toggle-darkmode-mobile"),
 					y = localStorage.getItem("theme"),
@@ -69,7 +81,29 @@
 				function L() {
 					e.toggleClass("no-scroll-y")
 				}
-				
+				n.click(function () {
+					t.addClass("mobile-menu-opened"), s.addClass("opened"), L()
+				}), a.click(function () {
+					t.removeClass("mobile-menu-opened"), s.removeClass("opened"), L()
+				}), i.click(function () {
+					(S = !S) ? (t.addClass("submenu-is-active"), i.addClass("active"), u.removeClass("closed").addClass("opened")) : A()
+				}), g.click(function () {
+					b.addClass("opened"), setTimeout(function () {
+						k.focus()
+					}, 400), L()
+				}), v.click(function () {
+					k.blur(), b.removeClass("opened"), L()
+				}),
+				k.keyup(function () {
+					if (k.val().length > 0 && _) {
+						var e = _.search(k.val()),
+							t = "";
+						if (e.length > 0) {
+							for (var n = 0, a = e.length; n < a; n++) t += '\n          <article class="m-result">            <a href="'.concat(e[n].url, '" class="m-result__link">              <h3 class="m-result__title">').concat(e[n].title, '</h3>              <span class="m-result__date">').concat(Object(p.formatDate)(e[n].published_at), "</span>            </a>          </article>");
+							j.hide(), w.html(t), w.show()
+						} else w.html(""), w.hide(), j.show()
+					} else w.html(""), w.hide(), j.hide()
+				}),
 				D.change(function () {
 					D.is(":checked") ? (o()("html").attr("data-theme", "dark"), localStorage.setItem("theme", "dark")) : (o()("html").attr("data-theme", "light"), localStorage.setItem("theme", "light"))
 				}),
@@ -89,11 +123,17 @@
 					},
 					offset: 15
 				}).init();
-				"undefined" != typeof disableFadeAnimation && disableFadeAnimation ? o()("[data-aos]").addClass("no-aos-animation") : h.a.init({
+				m.length > 0 && m.slick({
+					adaptiveHeight: !0,
+					arrows: !1,
+					infinite: !1,
+					mobileFirst: !0,
+					variableWidth: !0,
+					rtl: Object(p.isRTL)()
+				}), "undefined" != typeof disableFadeAnimation && disableFadeAnimation ? o()("[data-aos]").addClass("no-aos-animation") : h.a.init({
 					once: !0,
 					startEvent: "DOMContentLoaded"
-				}),
-				c()(".lozad", {
+				}), c()(".lozad", {
 					loaded: function (e) {
 						e.classList.add("loaded")
 					}
@@ -113,7 +153,7 @@
 					maxPatternLength: 32,
 					minMatchCharLength: 1,
 					keys: ["title", "custom_excerpt", "html"]
-				}
+				} : (g.css("visibility", "hidden"), v.remove(), b.remove())
 			})
 		}
 	},
