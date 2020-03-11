@@ -68,7 +68,9 @@
 					w = o()(".js-search-results"),
 					j = o()(".js-no-results"),
 					C = o()(".js-toggle-darkmode"),
+					D = o()(".js-toggle-darkmode-mobile"),
 					y = localStorage.getItem("theme"),
+					z = localStorage.getItem("theme"),
 					_ = null,
 					S = !1;
 
@@ -91,7 +93,8 @@
 					}, 400), L()
 				}), v.click(function () {
 					k.blur(), b.removeClass("opened"), L()
-				}), k.keyup(function () {
+				}),
+				k.keyup(function () {
 					if (k.val().length > 0 && _) {
 						var e = _.search(k.val()),
 							t = "";
@@ -100,11 +103,18 @@
 							j.hide(), w.html(t), w.show()
 						} else w.html(""), w.hide(), j.show()
 					} else w.html(""), w.hide(), j.hide()
-				}), C.change(function () {
+				}),
+				D.change(function () {
+					D.is(":checked") ? (o()("html").attr("data-theme", "dark"), localStorage.setItem("theme", "dark")) : (o()("html").attr("data-theme", "light"), localStorage.setItem("theme", "light"))
+				}),
+				C.change(function () {
 					C.is(":checked") ? (o()("html").attr("data-theme", "dark"), localStorage.setItem("theme", "dark")) : (o()("html").attr("data-theme", "light"), localStorage.setItem("theme", "light"))
-				}), o()(window).click(function (e) {
+				}),
+				o()(window).click(function (e) {
 					S && l && !l.contains(e.target) && (S = !1, A())
-				}), y ? (o()("html").attr("data-theme", y), "dark" === y && C.attr("checked", !0)) : Object(p.isDarkMode)() && C.attr("checked", !0);
+				}),
+				z ? (o()("html").attr("data-theme", z), "dark" === z && D.attr("checked", !0)) : Object(p.isDarkMode)() && D.attr("checked", !0),
+				y ? (o()("html").attr("data-theme", y), "dark" === y && C.attr("checked", !0)) : Object(p.isDarkMode)() && C.attr("checked", !0);
 				var M, D, O, x, T, I = document.querySelector(".js-header");
 				I && new r.a(I, {
 					tolerance: {
