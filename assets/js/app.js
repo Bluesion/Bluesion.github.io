@@ -133,7 +133,8 @@
 				}), "undefined" != typeof disableFadeAnimation && disableFadeAnimation ? o()("[data-aos]").addClass("no-aos-animation") : h.a.init({
 					once: !0,
 					startEvent: "DOMContentLoaded"
-				}), c()(".lozad", {
+				}),
+				c()(".lozad", {
 					loaded: function (e) {
 						e.classList.add("loaded")
 					}
@@ -153,7 +154,16 @@
 					maxPatternLength: 32,
 					minMatchCharLength: 1,
 					keys: ["title", "custom_excerpt", "html"]
-				} : (g.css("visibility", "hidden"), v.remove(), b.remove())
+				},
+				O.posts.browse({
+					limit: "all",
+					fields: "id, title, url, published_at, custom_excerpt, html"
+				}).then(function (e) {
+					for (var t = 0, n = e.length; t < n; t++) x.push(e[t]);
+					_ = new f.a(x, T)
+				}).catch(function (e) {
+					console.log(e)
+				})) : (g.css("visibility", "hidden"), v.remove(), b.remove())
 			})
 		}
 	},
