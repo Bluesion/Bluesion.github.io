@@ -977,7 +977,7 @@ div.lozad.loaded:not(.no-fade-animation),img.lozad.loaded {
   line-height: 1.5;
   font-size: 1.125rem;
   font-style: italic;
-  font-family: Georgia,Times New Roman,Times,serif;
+  font-family: 'Noto Sans KR', sans-serif;
   padding: 0 40px;
   margin: 0 0 25px;
 }
